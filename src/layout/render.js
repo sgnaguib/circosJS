@@ -5,6 +5,8 @@ import {event} from 'd3-selection'
 function renderLayoutLabels (conf, block) {
   const radius = conf.innerRadius + conf.labels.radialOffset
 
+  console.log(conf.ticks.radialOffset)
+
   const labelArc = arc()
     .innerRadius(radius)
     .outerRadius(radius)
@@ -60,7 +62,7 @@ function renderLayoutTicks (conf, layout, instance) {
     .enter().append('g')
     .attr(
       'transform',
-      (d) => 'rotate(' + (d.angle * 180 / Math.PI - 90) + ')' + 'translate(' + conf.outerRadius + ',0)'
+      (d) => 'rotate(' + (d.angle * 180 / Math.PI - 90) + ')' + 'translate(' + (conf.outerRadius + conf.ticks.radialOffset)+ ',0)'
     )
 
   ticks.append('line')

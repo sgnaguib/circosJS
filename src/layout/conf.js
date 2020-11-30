@@ -2,6 +2,12 @@ export default {
   innerRadius: 250,
   outerRadius: 300,
   cornerRadius: 0,
+  showCircleButton: true,
+  circleButtonRadius: 100,
+  circleButtonEvent: null,//function() {console.log("JSON is magic")},
+  circleButtonBackground: "black",
+  circleButtonStrokeColor: "gray",
+  circleButtonStrokeWidth: 10,
   gap: 0.04, // in radian
   opacity: 1,
   labels: {
@@ -24,6 +30,7 @@ export default {
     labelColor: '#000',
     labelFont: 'default',
     majorSpacing: 5,
+    radialOffset: 0,
     size: {
       minor: 2,
       major: 5

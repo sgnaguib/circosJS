@@ -9,6 +9,38 @@ export default function render (ids = [], removeTracks, circos) {
     .attr('width', circos.conf.width)
     .attr('height', circos.conf.height)
 
+  let layoutConf = circos._layout.conf
+
+  var defs = svg.append("defs");
+
+  defs.append('pattern')
+    .attr("id", "image")
+    .attr("width", 1)
+    .attr("height", 1)
+    .attr("patternUnits", "objectBoundingBox")
+    .append("image")
+    // .attr("xlink:href", function(d) {
+    //   return "http://lorempixel.com/" + layoutConf.circleButtonRadius*2+ "/" + layoutConf.circleButtonRadius*2+ "/people/1";
+    // })
+    .attr("xlink:href", "./data/arabidopsis.jpg")
+    .attr("width", layoutConf.circleButtonRadius*2)
+    .attr("height", layoutConf.circleButtonRadius*2)
+    .attr("y", 0)
+    .attr("x", 0);
+  
+  if (layoutConf.showCircleButton) {
+  const addedCircle = svg.append("circle")
+  .attr("cx", circos.conf.width/2)
+  .attr("cy", circos.conf.height/2)
+  .attr("r", layoutConf.circleButtonRadius)
+  .on("click", layoutConf.circleButtonEvent)
+  .style("fill", layoutConf.circleButtonBackground)
+  .style("stroke", layoutConf.circleButtonStrokeColor)
+  .style("stroke-width", layoutConf.circleButtonStrokeWidth)
+  }
+
+  
+
   if (removeTracks) {
     forEach(circos.tracks, (track, trackId) => {
       svg.select('.' + trackId).remove()

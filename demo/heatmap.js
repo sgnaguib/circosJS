@@ -29,13 +29,16 @@ function drawCircos(error, months, electricalConsumption, daysOff) {
         {
           innerRadius: width / 2 - 80,
           outerRadius: width / 2 - 30,
-          ticks: {display: false},
+          ticks: {display: true,
+            labelDenominator: 1,
+            spacing: 1,
+            radialOffset: 20},
           labels: {
             position: 'center',
             display: true,
             size: 14,
             color: '#000',
-            radialOffset: 15
+            radialOffset: 0
           }
         }
       )
