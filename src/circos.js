@@ -64,6 +64,10 @@ class Core {
     return this
   }
 
+  removeCentralButton() {
+    this.svg.select('#circleButton').remove()
+  }
+
   layout (data, conf) {
     this._layout = new Layout(conf, data)
     return this

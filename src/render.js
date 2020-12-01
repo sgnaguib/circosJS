@@ -32,6 +32,7 @@ export default function render (ids = [], removeTracks, circos) {
   const addedCircle = svg.append("circle")
   .attr("cx", circos.conf.width/2)
   .attr("cy", circos.conf.height/2)
+  .attr("id", "circleButton")
   .attr("r", layoutConf.circleButtonRadius)
   .on("click", layoutConf.circleButtonEvent)
   .style("fill", layoutConf.circleButtonBackground)

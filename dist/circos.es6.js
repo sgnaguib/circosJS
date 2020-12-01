@@ -10390,6 +10390,11 @@ var Core = function () {
       return this;
     }
   }, {
+    key: 'removeCentralButton',
+    value: function removeCentralButton() {
+      this.svg.select('#circleButton').remove();
+    }
+  }, {
     key: 'layout',
     value: function layout(data, conf) {
       this._layout = new _index2.default(conf, data);
@@ -14509,7 +14514,7 @@ function render() {
   .attr("xlink:href", "./data/arabidopsis.jpg").attr("width", layoutConf.circleButtonRadius * 2).attr("height", layoutConf.circleButtonRadius * 2).attr("y", 0).attr("x", 0);
 
   if (layoutConf.showCircleButton) {
-    var addedCircle = svg.append("circle").attr("cx", circos.conf.width / 2).attr("cy", circos.conf.height / 2).attr("r", layoutConf.circleButtonRadius).on("click", layoutConf.circleButtonEvent).style("fill", layoutConf.circleButtonBackground).style("stroke", layoutConf.circleButtonStrokeColor).style("stroke-width", layoutConf.circleButtonStrokeWidth);
+    var addedCircle = svg.append("circle").attr("cx", circos.conf.width / 2).attr("cy", circos.conf.height / 2).attr("id", "circleButton").attr("r", layoutConf.circleButtonRadius).on("click", layoutConf.circleButtonEvent).style("fill", layoutConf.circleButtonBackground).style("stroke", layoutConf.circleButtonStrokeColor).style("stroke-width", layoutConf.circleButtonStrokeWidth);
   }
 
   if (removeTracks) {
