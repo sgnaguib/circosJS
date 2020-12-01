@@ -13,6 +13,12 @@ var gieStainColor = {
   select: 'rgb(135,177,255)'
 }
 
+function removeCircle() {
+  console.log(circos)
+  circos.removeTracks('stack')
+  circos.removeCentralButton()
+}
+
 var drawCircos = function (error, GRCh37, cytobands, data) {
   var width = document.getElementsByClassName('mdl-card__supporting-text')[0].offsetWidth
   var circos = new Circos({
