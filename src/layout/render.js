@@ -38,7 +38,7 @@ function renderLayoutTicks (conf, layout, instance) {
     return range(0, d.len, conf.ticks.spacing).map((v, i) => {
       return {
         angle: v * k + d.start,
-        label: displayLabel(v, i)
+        label: displayLabel(v + conf.ticks.tickStartPosition, i)
       }
     })
   }

@@ -66,7 +66,9 @@ var drawCircos = function (error, GRCh37, cytobands, data) {
       },
       ticks: {
         display: true,
-        labelDenominator: 1000000
+        labelDenominator: 1000000,
+        tickStartPosition: 0
+
       },
       events: {
         'click.demo': function (d, i, nodes, event) {

@@ -19,6 +19,7 @@ export default {
   },
   ticks: {
     display: true,
+    tickStartPosition: 0,
     color: 'grey',
     spacing: 10000000,
     labels: true,

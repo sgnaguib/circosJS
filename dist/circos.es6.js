@@ -14445,6 +14445,7 @@ exports.default = {
   },
   ticks: {
     display: true,
+    tickStartPosition: 0,
     color: 'grey',
     spacing: 10000000,
     labels: true,
@@ -14805,7 +14806,7 @@ function renderLayoutTicks(conf, layout, instance) {
     return (0, _d3Array.range)(0, d.len, conf.ticks.spacing).map(function (v, i) {
       return {
         angle: v * k + d.start,
-        label: displayLabel(v, i)
+        label: displayLabel(v + conf.ticks.tickStartPosition, i)
       };
     });
   }
