@@ -13,16 +13,20 @@ export default function render (ids = [], removeTracks, circos) {
 
   var defs = svg.append("defs");
 
+  var backgroundFill
+  if(layoutConf.circleButtonBackground.includes('.')){
+    backgroundFill = 'url(#' + layoutConf.circleButtonBackground + ')'
+  } else {
+    backgroundFill = layoutConf.circleButtonBackground
+  }
+
   defs.append('pattern')
-    .attr("id", "image")
+    .attr("id", layoutConf.circleButtonBackground)
     .attr("width", 1)
     .attr("height", 1)
     .attr("patternUnits", "objectBoundingBox")
     .append("image")
-    // .attr("xlink:href", function(d) {
-    //   return "http://lorempixel.com/" + layoutConf.circleButtonRadius*2+ "/" + layoutConf.circleButtonRadius*2+ "/people/1";
-    // })
-    .attr("xlink:href", "./data/arabidopsis.jpg")
+    .attr("xlink:href", "./data/" + layoutConf.circleButtonBackground)
     .attr("width", layoutConf.circleButtonRadius*2)
     .attr("height", layoutConf.circleButtonRadius*2)
     .attr("y", 0)
@@ -35,7 +39,7 @@ export default function render (ids = [], removeTracks, circos) {
   .attr("id", "circleButton")
   .attr("r", layoutConf.circleButtonRadius)
   .on("click", layoutConf.circleButtonEvent)
-  .style("fill", layoutConf.circleButtonBackground)
+  .style("fill", backgroundFill)
   .style("stroke", layoutConf.circleButtonStrokeColor)
   .style("stroke-width", layoutConf.circleButtonStrokeWidth)
   }
