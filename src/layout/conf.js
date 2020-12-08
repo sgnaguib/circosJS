@@ -5,7 +5,8 @@ export default {
   showCircleButton: true,
   circleButtonRadius: 100,
   circleButtonEvent: null,//function() {console.log("JSON is magic")},
-  circleButtonBackground: "black",
+  circleButtonImage: null,
+  circleButtonColor: "black",
   circleButtonStrokeColor: "gray",
   circleButtonStrokeWidth: 10,
   gap: 0.04, // in radian

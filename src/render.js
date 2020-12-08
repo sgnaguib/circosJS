@@ -13,35 +13,52 @@ export default function render (ids = [], removeTracks, circos) {
 
   var defs = svg.append("defs");
 
-  var backgroundFill
-  if(layoutConf.circleButtonBackground.includes('.')){
-    backgroundFill = 'url(#' + layoutConf.circleButtonBackground + ')'
-  } else {
-    backgroundFill = layoutConf.circleButtonBackground
-  }
+  // var backgroundFill
+  // if(layoutConf.circleButtonImage.includes('.')){
+  //   backgroundFill = 'url(#' + layoutConf.circleButtonImage + ')'
+  // } else {
+  //   backgroundFill = layoutConf.circleButtonImage
+  // }
 
-  defs.append('pattern')
-    .attr("id", layoutConf.circleButtonBackground)
-    .attr("width", 1)
-    .attr("height", 1)
-    .attr("patternUnits", "objectBoundingBox")
-    .append("image")
-    .attr("xlink:href", "./data/" + layoutConf.circleButtonBackground)
-    .attr("width", layoutConf.circleButtonRadius*2)
-    .attr("height", layoutConf.circleButtonRadius*2)
-    .attr("y", 0)
-    .attr("x", 0);
+
   
   if (layoutConf.showCircleButton) {
+  svg.append("circle")
+  .attr("cx", circos.conf.width/2)
+  .attr("cy", circos.conf.height/2)
+  .attr("id", "circleColor")
+  .attr("r", layoutConf.circleButtonRadius)
+  .style("fill", layoutConf.circleButtonColor)
+  .style("stroke", layoutConf.circleButtonStrokeColor)
+  .style("stroke-width", layoutConf.circleButtonStrokeWidth)
+
+  //If user specified an image
+  if (layoutConf.circleButtonImage !== null) {
+  console.log("Got into image section")
+  defs.append('pattern')
+  .attr("id", layoutConf.circleButtonImage)
+  .attr("width", 1)
+  .attr("height", 1)
+  .attr("patternUnits", "objectBoundingBox")
+  .append("image")
+  .attr("xlink:href", "./data/" + layoutConf.circleButtonImage)
+  .attr("width", layoutConf.circleButtonRadius*2)
+  .attr("height", layoutConf.circleButtonRadius*2)
+  .attr("y", 0)
+  .attr("x", 0);
+
   const addedCircle = svg.append("circle")
   .attr("cx", circos.conf.width/2)
   .attr("cy", circos.conf.height/2)
   .attr("id", "circleButton")
   .attr("r", layoutConf.circleButtonRadius)
   .on("click", layoutConf.circleButtonEvent)
-  .style("fill", backgroundFill)
+  .style("fill", 'url(#' + layoutConf.circleButtonImage + ')')
   .style("stroke", layoutConf.circleButtonStrokeColor)
   .style("stroke-width", layoutConf.circleButtonStrokeWidth)
+  }
+
+  
   }
 
   

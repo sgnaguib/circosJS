@@ -60,7 +60,8 @@ var drawCircos = function (error, GRCh37, cytobands, data) {
       outerRadius: width/2 - 40,
       showCircleButton: true,
       circleButtonRadius: 100,
-      circleButtonBackground: 'bonobo.jpg',
+      circleButtonImage: null,
+      circleButtonColor: 'red',
       labels: {
         radialOffset: 70
       },
