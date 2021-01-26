@@ -36,10 +36,10 @@ export default function render (ids = [], removeTracks, circos) {
   .attr("patternUnits", "objectBoundingBox")
   .append("image")
   .attr("xlink:href", "../../data/images" + layoutConf.circleButtonImage)
-  .attr("width", layoutConf.circleButtonRadius*2)
-  .attr("height", layoutConf.circleButtonRadius*2)
-  .attr("y", 0)
-  .attr("x", 0);
+  .attr("width", layoutConf.circleButtonRadius*2-layoutConf.imageSizeOffset)
+  .attr("height", layoutConf.circleButtonRadius*2-layoutConf.imageSizeOffset)
+  .attr("y", layoutConf.imageYOffset)
+  .attr("x", layoutConf.imageXOffset);
 
   const addedCircle = svg.append("circle")
   .attr("cx", circos.conf.width/2)
