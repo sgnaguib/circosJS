@@ -62,6 +62,7 @@ var drawCircos = function (error, GRCh37, cytobands, data) {
       circleButtonRadius: 100,
       circleButtonImage: null,
       circleButtonColor: 'red',
+      circleButtonEvent: function(){console.log("hi")},
       labels: {
         radialOffset: 70
       },

@@ -10392,7 +10392,7 @@ var Core = function () {
   }, {
     key: 'removeCentralButton',
     value: function removeCentralButton() {
-      this.svg.select('#circleButton').remove();
+      this.svg.selectAll('.circleButton').remove();
     }
   }, {
     key: 'layout',
@@ -14509,23 +14509,14 @@ function render() {
 
   var defs = svg.append("defs");
 
-  // var backgroundFill
-  // if(layoutConf.circleButtonImage.includes('.')){
-  //   backgroundFill = 'url(#' + layoutConf.circleButtonImage + ')'
-  // } else {
-  //   backgroundFill = layoutConf.circleButtonImage
-  // }
-
-
   if (layoutConf.showCircleButton) {
-    svg.append("circle").attr("cx", circos.conf.width / 2).attr("cy", circos.conf.height / 2).attr("id", "circleColor").attr("r", layoutConf.circleButtonRadius).style("fill", layoutConf.circleButtonColor).style("stroke", layoutConf.circleButtonStrokeColor).style("stroke-width", layoutConf.circleButtonStrokeWidth);
+    svg.append("circle").attr("cx", circos.conf.width / 2).attr("cy", circos.conf.height / 2).attr("id", "circleColor").attr("class", "circleButton").attr("r", layoutConf.circleButtonRadius).style("fill", layoutConf.circleButtonColor).style("stroke", layoutConf.circleButtonStrokeColor).style("stroke-width", layoutConf.circleButtonStrokeWidth).on("click", layoutConf.circleButtonEvent);
 
     //If user specified an image
     if (layoutConf.circleButtonImage !== null) {
-      console.log("Got into image section");
-      defs.append('pattern').attr("id", layoutConf.circleButtonImage).attr("width", 1).attr("height", 1).attr("patternUnits", "objectBoundingBox").append("image").attr("xlink:href", "./data/" + layoutConf.circleButtonImage).attr("width", layoutConf.circleButtonRadius * 2).attr("height", layoutConf.circleButtonRadius * 2).attr("y", 0).attr("x", 0);
+      defs.append('pattern').attr("id", layoutConf.circleButtonImage).attr("class", "circleButton").attr("width", 1).attr("height", 1).attr("patternUnits", "objectBoundingBox").append("image").attr("xlink:href", "../../data/images" + layoutConf.circleButtonImage).attr("width", layoutConf.circleButtonRadius * 2).attr("height", layoutConf.circleButtonRadius * 2).attr("y", 0).attr("x", 0);
 
-      var addedCircle = svg.append("circle").attr("cx", circos.conf.width / 2).attr("cy", circos.conf.height / 2).attr("id", "circleButton").attr("r", layoutConf.circleButtonRadius).on("click", layoutConf.circleButtonEvent).style("fill", 'url(#' + layoutConf.circleButtonImage + ')').style("stroke", layoutConf.circleButtonStrokeColor).style("stroke-width", layoutConf.circleButtonStrokeWidth);
+      var addedCircle = svg.append("circle").attr("cx", circos.conf.width / 2).attr("cy", circos.conf.height / 2).attr("id", "circleButton").attr("class", "circleButton").attr("r", layoutConf.circleButtonRadius).on("click", layoutConf.circleButtonEvent).style("fill", 'url(#' + layoutConf.circleButtonImage + ')').style("stroke", layoutConf.circleButtonStrokeColor).style("stroke-width", layoutConf.circleButtonStrokeWidth);
     }
   }
 
@@ -14788,7 +14779,7 @@ var _d3Selection = __webpack_require__(3);
 function renderLayoutLabels(conf, block) {
   var radius = conf.innerRadius + conf.labels.radialOffset;
 
-  console.log(conf.ticks.radialOffset);
+  // console.log(conf.ticks.radialOffset)
 
   var labelArc = (0, _d3Shape.arc)().innerRadius(radius).outerRadius(radius).startAngle(function (d, i) {
     return d.start;

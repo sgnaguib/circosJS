@@ -13,35 +13,29 @@ export default function render (ids = [], removeTracks, circos) {
 
   var defs = svg.append("defs");
 
-  // var backgroundFill
-  // if(layoutConf.circleButtonImage.includes('.')){
-  //   backgroundFill = 'url(#' + layoutConf.circleButtonImage + ')'
-  // } else {
-  //   backgroundFill = layoutConf.circleButtonImage
-  // }
-
-
   
   if (layoutConf.showCircleButton) {
   svg.append("circle")
   .attr("cx", circos.conf.width/2)
   .attr("cy", circos.conf.height/2)
   .attr("id", "circleColor")
+  .attr("class", "circleButton")
   .attr("r", layoutConf.circleButtonRadius)
   .style("fill", layoutConf.circleButtonColor)
   .style("stroke", layoutConf.circleButtonStrokeColor)
   .style("stroke-width", layoutConf.circleButtonStrokeWidth)
+  .on("click", layoutConf.circleButtonEvent)
 
   //If user specified an image
   if (layoutConf.circleButtonImage !== null) {
-  console.log("Got into image section")
   defs.append('pattern')
   .attr("id", layoutConf.circleButtonImage)
+  .attr("class", "circleButton")
   .attr("width", 1)
   .attr("height", 1)
   .attr("patternUnits", "objectBoundingBox")
   .append("image")
-  .attr("xlink:href", "./data/" + layoutConf.circleButtonImage)
+  .attr("xlink:href", "../../data/images" + layoutConf.circleButtonImage)
   .attr("width", layoutConf.circleButtonRadius*2)
   .attr("height", layoutConf.circleButtonRadius*2)
   .attr("y", 0)
@@ -51,6 +45,7 @@ export default function render (ids = [], removeTracks, circos) {
   .attr("cx", circos.conf.width/2)
   .attr("cy", circos.conf.height/2)
   .attr("id", "circleButton")
+  .attr("class", "circleButton")
   .attr("r", layoutConf.circleButtonRadius)
   .on("click", layoutConf.circleButtonEvent)
   .style("fill", 'url(#' + layoutConf.circleButtonImage + ')')

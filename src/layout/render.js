@@ -5,7 +5,7 @@ import {event} from 'd3-selection'
 function renderLayoutLabels (conf, block) {
   const radius = conf.innerRadius + conf.labels.radialOffset
 
-  console.log(conf.ticks.radialOffset)
+  // console.log(conf.ticks.radialOffset)
 
   const labelArc = arc()
     .innerRadius(radius)

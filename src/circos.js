@@ -65,7 +65,7 @@ class Core {
   }
 
   removeCentralButton() {
-    this.svg.select('#circleButton').remove()
+    this.svg.selectAll('.circleButton').remove()
   }
 
   layout (data, conf) {
