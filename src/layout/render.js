@@ -124,6 +124,7 @@ export default function renderLayout (parentElement, instance) {
     .attr('d', entry)
     .attr('fill', (d) => d.color)
     .attr('id', (d) => d.id)
+    .attr('class', 'arcs')
 
   if (conf.labels.display) {
     renderLayoutLabels(conf, block)

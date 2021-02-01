@@ -21,9 +21,9 @@ export default function render (ids = [], removeTracks, circos) {
   .attr("id", "circleColor")
   .attr("class", "circleButton")
   .attr("r", layoutConf.circleButtonRadius)
-  .style("fill", layoutConf.circleButtonColor)
-  .style("stroke", layoutConf.circleButtonStrokeColor)
-  .style("stroke-width", layoutConf.circleButtonStrokeWidth)
+  .attr("fill", layoutConf.circleButtonColor)
+  .attr("stroke", layoutConf.circleButtonStrokeColor)
+  .attr("stroke-width", layoutConf.circleButtonStrokeWidth)
   .on("click", layoutConf.circleButtonEvent)
 
   //If user specified an image

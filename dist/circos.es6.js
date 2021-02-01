@@ -14512,7 +14512,7 @@ function render() {
   var defs = svg.append("defs");
 
   if (layoutConf.showCircleButton) {
-    svg.append("circle").attr("cx", circos.conf.width / 2).attr("cy", circos.conf.height / 2).attr("id", "circleColor").attr("class", "circleButton").attr("r", layoutConf.circleButtonRadius).style("fill", layoutConf.circleButtonColor).style("stroke", layoutConf.circleButtonStrokeColor).style("stroke-width", layoutConf.circleButtonStrokeWidth).on("click", layoutConf.circleButtonEvent);
+    svg.append("circle").attr("cx", circos.conf.width / 2).attr("cy", circos.conf.height / 2).attr("id", "circleColor").attr("class", "circleButton").attr("r", layoutConf.circleButtonRadius).attr("fill", layoutConf.circleButtonColor).attr("stroke", layoutConf.circleButtonStrokeColor).attr("stroke-width", layoutConf.circleButtonStrokeWidth).on("click", layoutConf.circleButtonEvent);
 
     //If user specified an image
     if (layoutConf.circleButtonImage !== null) {
@@ -14874,7 +14874,7 @@ function renderLayout(parentElement, instance) {
     return d.color;
   }).attr('id', function (d) {
     return d.id;
-  });
+  }).attr('class', 'arcs');
 
   if (conf.labels.display) {
     renderLayoutLabels(conf, block);

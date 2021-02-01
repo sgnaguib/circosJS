@@ -13,6 +13,8 @@ var gieStainColor = {
   select: 'rgb(135,177,255)'
 }
 
+
+
 function removeCircle() {
   console.log(circos)
   circos.removeTracks('stack')
@@ -118,7 +120,11 @@ var drawCircos = function (error, GRCh37, cytobands, data) {
     }
     )
     .render()
+
+    console.log(d3.selectAll('.arcs').style('fill','green'))
 }
+
+
 
 d3.queue()
   .defer(d3.json, './data/GRCh37.json')
